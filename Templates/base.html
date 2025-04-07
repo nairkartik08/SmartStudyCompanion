@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{ title if title else "Smart Study Companion" }}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+  <div class="sidebar">
+    <h2>🔬 Smart Study Companion</h2>
+    <ul>
+      <li><a href="{{ url_for('home') }}">Dashboard</a></li>
+      <li><a href="#" onclick="showSection('timetable')">Timetable Planner</a></li>
+      <li><a href="#" onclick="showSection('pomodoro')">Pomodoro Timer</a></li>
+      <li><a href="#" onclick="showSection('notes')">Notes</a></li>
+      <li><a href="#" onclick="showSection('formulas')">Formula Calculators</a></li>
+      <li><a href="#" onclick="showSection('ai')">AI Physics Explainer</a></li>
+      <li><a href="{{ url_for('virtual_lab') }}">Virtual Lab</a></li>
+    </ul>
+  </div>
+  <div class="main-content">
+    {% block content %}{% endblock %}
+  </div>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
